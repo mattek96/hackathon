@@ -1,5 +1,7 @@
-﻿using HackathonWebApi.Services.Dto;
+﻿using HackathonWebApi.Json;
+using HackathonWebApi.Services.Dto;
 using OpenAI.Net;
+using System.Text.Json;
 
 namespace HackathonWebApi.Services
 {
@@ -16,10 +18,17 @@ namespace HackathonWebApi.Services
 
             if (response.IsSuccess)
             {
-                return new OpenAiResponse(Response: response.Result.Choices.FirstOrDefault().Message.Content);
+                var jsonResponse = response.Result.Choices.FirstOrDefault().Message.Content;
+                // TODO store json in DB
+                // TODO split into two endpoints
+                    // post which returns ok or error
+                    // get which returns plan from db
+                var workoutPlan = WorkoutPlanConverter.ConvertFromJson(jsonResponse);
+
+                return new OpenAiResponse(Response: workoutPlan, ErrorMessage: string.Empty);
             }
             
-            return new OpenAiResponse(response.ErrorMessage);
+            return new OpenAiResponse(Response: new WorkoutPlan(), ErrorMessage: response.ErrorMessage);
         }
     }
 }
