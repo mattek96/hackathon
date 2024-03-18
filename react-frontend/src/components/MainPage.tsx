@@ -1,10 +1,9 @@
-import styled from 'styled-components';
-import Button from '../shared/Button.tsx';
-import remoteService from '../services/RemoteService.tsx';
-import { useEffect, useState } from 'react';
-import LoadingPage from '../shared/LoadingPage.tsx';
-import { OpenAiRequestDto, OpenAiResponseDto } from '../shared/model.tsx';
-import { Form } from 'react-router-dom';
+import styled from "styled-components";
+import Button from "../shared/Button.tsx";
+import remoteService from "../services/RemoteService.tsx";
+import { useState } from "react";
+import { OpenAiRequestDto, OpenAiResponseDto } from "../shared/model.tsx";
+import Input from "../shared/Input.tsx";
 
 const Section = styled.div`
   display: flex;
@@ -13,41 +12,46 @@ const Section = styled.div`
 `;
 
 const ExampleTitle = styled.h3`
-  font-size: 4rem;
+  font-size: 2rem;
   margin-bottom: 0;
   color: var(--secondary);
   padding-bottom: 4%;
 `;
 
 export default function MainPage() {
-    function LoadTrainingPlan() {
-        loadDataFromOpenAi();
-    }
+  function LoadTrainingPlan() {
+    loadDataFromOpenAi();
+  }
 
-    const [openAiRequest, setOpenAiRequest] = useState<string>('');
-    const [openAiResponse, setOpenAiResponse] = useState<OpenAiResponseDto | undefined>(undefined);
+  const [openAiRequest, setOpenAiRequest] = useState<string>("");
+  const [openAiResponse, setOpenAiResponse] = useState<
+    OpenAiResponseDto | undefined
+  >(undefined);
 
-    function loadDataFromOpenAi() {
-        const request : OpenAiRequestDto = {
-            freeText: openAiRequest
-        };
+  function loadDataFromOpenAi() {
+    const request: OpenAiRequestDto = {
+      freeText: openAiRequest,
+    };
 
-        remoteService.post<OpenAiResponseDto>('/mvp', request).then((result: OpenAiResponseDto) => {
-            console.log(result.response);
-            setOpenAiResponse(result);
-        });
+    remoteService
+      .post<OpenAiResponseDto>("/mvp", request)
+      .then((result: OpenAiResponseDto) => {
+        console.log(result.response);
+        setOpenAiResponse(result);
+      });
 
+    setOpenAiRequest("");
+  }
 
-
-        setOpenAiRequest('');
-    }
-
-    return (
-        <Section>
-            <ExampleTitle>Please describe your training idea</ExampleTitle>
-            <input value={openAiRequest} onChange={e => setOpenAiRequest(e.target.value)} />
-            <Button onClick={LoadTrainingPlan}>Submit</Button>
-            <p>{openAiResponse?.response}</p>
-        </Section>
-    );
+  return (
+    <Section>
+      <ExampleTitle>Please describe your training idea</ExampleTitle>
+      <Input
+        value={openAiRequest}
+        onChange={(e) => setOpenAiRequest(e.target.value)}
+      />
+      <Button onClick={LoadTrainingPlan}>Submit</Button>
+      <p>{openAiResponse?.response}</p>
+    </Section>
+  );
 }
