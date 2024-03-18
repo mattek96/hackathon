@@ -1,4 +1,5 @@
-﻿using OpenAI.Net;
+﻿using HackathonWebApi.Services.Dto;
+using OpenAI.Net;
 using OpenAI.Net.Models.Responses;
 
 namespace HackathonWebApi.Example
