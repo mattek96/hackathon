@@ -2,6 +2,6 @@
 {
     public class Config
     {
-        public static int MaxTokens = 200;
+        public static int MaxTokens = 1000;
     }
 }

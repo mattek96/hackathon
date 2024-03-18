@@ -1,0 +1,20 @@
+{
+  "WorkoutPlan": [
+    {
+      "Month": "number",
+      "Months": [
+        {
+          "Week": "number",
+          "Weeks": [
+            {
+              "Day": "number",
+              "Excercises": [
+                { "Excercise": "string" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
