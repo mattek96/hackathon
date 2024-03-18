@@ -3,7 +3,8 @@ import Button from '../shared/Button.tsx';
 import remoteService from '../services/RemoteService.tsx';
 import { useEffect, useState } from 'react';
 import LoadingPage from '../shared/LoadingPage.tsx';
-import { ExampleDto } from '../shared/model.tsx';
+import { OpenAiRequestDto, OpenAiResponseDto } from '../shared/model.tsx';
+import { Form } from 'react-router-dom';
 
 const Section = styled.div`
   display: flex;
@@ -19,32 +20,34 @@ const ExampleTitle = styled.h3`
 `;
 
 export default function MainPage() {
-    function handleClick() {
-        loadExample();
+    function LoadTrainingPlan() {
+        loadDataFromOpenAi();
     }
 
-    const [example, setExample] = useState<ExampleDto | undefined>(undefined);
+    const [openAiRequest, setOpenAiRequest] = useState<string>('');
+    const [openAiResponse, setOpenAiResponse] = useState<OpenAiResponseDto | undefined>(undefined);
 
-    useEffect(() => {
-        loadExample();
-    }, []);
+    function loadDataFromOpenAi() {
+        const request : OpenAiRequestDto = {
+            freeText: openAiRequest
+        };
 
-    function loadExample() {
-        setExample(undefined);
-        remoteService.get<ExampleDto>('/example/').then((response: ExampleDto) => {
-            console.log(response);
-            setExample(response);
+        remoteService.post<OpenAiResponseDto>('/mvp', request).then((result: OpenAiResponseDto) => {
+            console.log(result.response);
+            setOpenAiResponse(result);
         });
-    }
 
-    if (example == undefined) {
-        return <LoadingPage/>;
+
+
+        setOpenAiRequest('');
     }
 
     return (
         <Section>
-            <ExampleTitle>{example.name} {example.value}</ExampleTitle>
-            <Button onClick={handleClick}>Refresh</Button>
+            <ExampleTitle>Please describe your training idea</ExampleTitle>
+            <input value={openAiRequest} onChange={e => setOpenAiRequest(e.target.value)} />
+            <Button onClick={LoadTrainingPlan}>Submit</Button>
+            <p>{openAiResponse?.response}</p>
         </Section>
     );
 }
