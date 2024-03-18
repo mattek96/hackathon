@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { ReactNode } from 'react';
+import styled from "styled-components";
+import { ReactNode } from "react";
 
 const StyledButton = styled.button`
   background-color: var(--secondary);
@@ -13,6 +13,7 @@ const StyledButton = styled.button`
   cursor: pointer;
   border-radius: 4px;
   border: 1px solid var(--secondary);
+  margin: 20px;
 
   &:hover {
     color: var(--secondary);
@@ -25,14 +26,10 @@ const StyledButton = styled.button`
 `;
 
 interface Props {
-    children: ReactNode;
-    onClick: () => void;
+  children: ReactNode;
+  onClick: () => void;
 }
 
 export default function Button({ children, onClick }: Props) {
-    return (
-        <StyledButton onClick={onClick}>
-            {children}
-        </StyledButton>
-    );
+  return <StyledButton onClick={onClick}>{children}</StyledButton>;
 }
