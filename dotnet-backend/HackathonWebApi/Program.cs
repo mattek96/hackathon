@@ -13,7 +13,7 @@ namespace HackathonWebApi
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddScoped<ExampleService>();
+            builder.Services.AddScoped<MvpService>();
 
             //Add OpenAI API key
             builder.Services.AddOpenAIServices(options =>
