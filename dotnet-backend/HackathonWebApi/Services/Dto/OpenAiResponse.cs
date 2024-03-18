@@ -1,4 +1,6 @@
-﻿namespace HackathonWebApi.Services.Dto
+﻿using HackathonWebApi.Json;
+
+namespace HackathonWebApi.Services.Dto
 {
-    public record OpenAiResponse(string Response);
+    public record OpenAiResponse(WorkoutPlan Response, string ErrorMessage);
 }
