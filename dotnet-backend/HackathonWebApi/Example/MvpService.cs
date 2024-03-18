@@ -8,9 +8,9 @@ namespace HackathonWebApi.Example
         private static readonly string[] possibleValues = [ "Example", "Beispiel", "Exemple", "Ejemplar" ];
         private static readonly Random random = new Random(DateTime.Now.Millisecond);
 
-        public async Task<OpenAiResponse> GetOpenAiResponseDtoAsync()
+        public async Task<OpenAiResponse> GetOpenAiResponseDtoAsync(string text)
         {
-            var response = await openAi.Chat.Get("How long until we reach mars?");
+            var response = await openAi.Chat.Get(text);
 
             if (response.IsSuccess)
             {

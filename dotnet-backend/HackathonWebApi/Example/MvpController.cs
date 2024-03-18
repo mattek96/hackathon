@@ -9,15 +9,15 @@ namespace HackathonWebApi.Controllers
     {
         private readonly MvpService exampleService;
 
-        public MvpController(MvpService exampleService)
+        public MvpController(MvpService openAiResponseService)
         {
-            this.exampleService = exampleService;
+            this.exampleService = openAiResponseService;
         }
 
         [HttpGet]
-        public async Task<OpenAiResponse> GetOpenAiResponseAsync()
+        public async Task<OpenAiResponse> GetOpenAiResponseAsync(UserInput input)
         {
-            return await exampleService.GetOpenAiResponseDtoAsync();
+            return await exampleService.GetOpenAiResponseDtoAsync(input.FreeText);
         }
     }
 }
