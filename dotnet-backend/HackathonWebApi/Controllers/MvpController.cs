@@ -1,5 +1,5 @@
 using HackathonWebApi.Entities;
-using HackathonWebApi.Example;
+using HackathonWebApi.Services;
 using HackathonWebApi.Services.Dto;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,7 +19,7 @@ namespace HackathonWebApi.Controllers
         [HttpPost]
         public async Task<OpenAiResponse> GetOpenAiResponseAsync([FromBody] UserInput input)
         {
-            return await exampleService.GetOpenAiResponseDtoAsync(input.FreeText);
+            return await exampleService.GetOpenAiResponseDtoAsync(MessageService.GetConstructedMessage(input));
         }
     }
 }
