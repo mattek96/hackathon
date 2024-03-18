@@ -15,9 +15,9 @@ namespace HackathonWebApi.Controllers
         }
 
         [HttpGet]
-        public ExampleDto GetExample()
+        public async Task<ExampleDto> GetExampleAsync()
         {
-            return exampleService.GetExampleDto();
+            return await exampleService.GetExampleDtoAsync();
         }
     }
 }
