@@ -7,11 +7,16 @@ namespace HackathonWebApi.Services
     {
         public async Task<OpenAiResponse> GetOpenAiResponseDtoAsync(string text)
         {
-            var response = await openAi.Chat.Get(text, o => { o.MaxTokens = Config.MaxTokens; });
+            var response = await openAi.Chat.Get(text, o => 
+                { 
+                    o.MaxTokens = Config.MaxTokens;
+                    o.ResponseFormat = new ChatResponseFormatType {Type = "json_object" };
+                }
+            );
 
             if (response.IsSuccess)
             {
-                return new OpenAiResponse(Response: response.Result.Choices[0].Message.Content);
+                return new OpenAiResponse(Response: response.Result.Choices.FirstOrDefault().Message.Content);
             }
             
             return new OpenAiResponse(response.ErrorMessage);
