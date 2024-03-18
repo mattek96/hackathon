@@ -1,4 +1,4 @@
-using HackathonWebApi.Example;
+using HackathonWebApi.Services;
 using OpenAI.Net;
 
 namespace HackathonWebApi
