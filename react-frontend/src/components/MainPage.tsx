@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import Button from "../shared/Button.tsx";
 import remoteService from "../services/RemoteService.tsx";
-import { useState } from "react";
-import { OpenAiRequestDto, OpenAiResponseDto } from "../shared/model.tsx";
-import Input from "../shared/Input.tsx";
+import { useEffect, useState } from "react";
+import { Day, WorkoutPlan } from "../shared/model.tsx";
+import Card from "./Card.tsx";
 
 const Section = styled.div`
   display: flex;
@@ -11,7 +10,7 @@ const Section = styled.div`
   align-items: center;
 `;
 
-const ExampleTitle = styled.h3`
+const Title = styled.h3`
   font-size: 2rem;
   margin-bottom: 0;
   color: var(--secondary);
@@ -19,40 +18,26 @@ const ExampleTitle = styled.h3`
 `;
 
 export default function MainPage() {
-  function LoadTrainingPlan() {
-    loadDataFromOpenAi();
-  }
+  const [workoutPlan, setWorkoutPlan] = useState<WorkoutPlan | undefined>(
+    undefined
+  );
 
-  const [openAiRequest, setOpenAiRequest] = useState<string>("");
-  const [openAiResponse, setOpenAiResponse] = useState<
-    OpenAiResponseDto | undefined
-  >(undefined);
+  useEffect(() => {
+    loadData();
+  }, []);
 
-  function loadDataFromOpenAi() {
-    const request: OpenAiRequestDto = {
-      freeText: openAiRequest,
-    };
-
-    remoteService
-      .post<OpenAiResponseDto>("/mvp", request)
-      .then((result: OpenAiResponseDto) => {
-        console.log(result.response);
-        setOpenAiResponse(result);
-      });
-
-    setOpenAiRequest("");
+  function loadData() {
+    remoteService.get<WorkoutPlan>("/mvp").then((value: WorkoutPlan) => {
+      setWorkoutPlan(value);
+    });
   }
 
   return (
     <Section>
-      <ExampleTitle>Please describe your training idea</ExampleTitle>
-      <Input
-        type="string"
-        value={openAiRequest}
-        onChange={(e) => setOpenAiRequest(e.target.value)}
-      />
-      <Button onClick={LoadTrainingPlan}>Submit</Button>
-      <p>{openAiResponse?.response}</p>
+      <Title>Training Plan</Title>
+      {workoutPlan?.days.map((day: Day) => (
+        <Card day={day}></Card>
+      ))}
     </Section>
   );
 }

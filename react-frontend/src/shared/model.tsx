@@ -1,9 +1,14 @@
-export interface OpenAiResponseDto {
-  response: string;
+export interface Instructions {
+  instruction: string;
 }
 
-export interface OpenAiRequestDto {
-  freeText: string;
+export interface Day {
+  date: string;
+  exercises: Instructions[];
+}
+
+export interface WorkoutPlan {
+  days: Day[];
 }
 
 export interface UserInput {
