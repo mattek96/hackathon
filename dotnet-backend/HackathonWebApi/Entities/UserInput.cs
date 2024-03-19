@@ -4,7 +4,7 @@
     {
         public required string FreeText { get; set; }
         public SportLevel Athleticism { get; set; } = SportLevel.Beginner;
-        public DateTime StartDate { get; set; } = DateTime.Now;
+        public DateTime StartDate { get; set; } = DateTime.Now.AddDays(-5);
         public int? Age { get; set; }
         public Gender? Sex { get; set; }
 
