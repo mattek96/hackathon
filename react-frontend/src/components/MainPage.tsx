@@ -45,9 +45,9 @@ export default function MainPage() {
   var nextDate = new Date("2000-01-01");
   var isFound = false;
   var counter = 0;
-  while(!isFound){
-    console.log("hi");
-    var day = workoutPlan?.days[counter++];
+  while(!isFound || !workoutPlan || counter >= workoutPlan?.days.length){
+    var day = workoutPlan?.days[counter];
+    counter++;
     if(day?.date){
       var dayDate = new Date(day.date);
       if(dayDate > new Date("2024-03-27") || dateIsEqual(dayDate, new Date("2024-03-27"))){
