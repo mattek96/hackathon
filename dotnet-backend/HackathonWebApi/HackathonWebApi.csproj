@@ -13,4 +13,8 @@
     <PackageReference Include="OpenAI.Net.Client" Version="1.0.21" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Database\" />
+  </ItemGroup>
+
 </Project>
