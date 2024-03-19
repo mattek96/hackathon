@@ -12,17 +12,34 @@ const StyledCard = styled.div`
   height: fit-content;
 `;
 
+const StyledCardNext =styled.div`
+  ${StyledCard}
+  background: green;
+`;
+
 interface Props {
   day: Day;
+  nextExercise: boolean;
 }
 
-export default function Card({ day }: Props) {
+export default function Card({ day, nextExercise }: Props) {
+  if(nextExercise){
+    return (
+      <StyledCardNext className="CardNext">
+      <p>{day.date?.toString()}</p>
+      {day.exercises.map((exercise: Instructions) => (
+        <p>{exercise.instruction}</p>
+      ))}
+    </StyledCardNext>
+    )
+  }
   return (
     <StyledCard>
-      <p>{day.date}</p>
+      <p>{day.date?.toString()}</p>
       {day.exercises.map((exercise: Instructions) => (
         <p>{exercise.instruction}</p>
       ))}
     </StyledCard>
+    
   );
 }

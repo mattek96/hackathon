@@ -9,7 +9,7 @@ namespace HackathonWebApi.Json
 
     public class Day
     {
-        public string? Date { get; set; }
+        public DateOnly? Date { get; set; }
         public List<Exercise>? Exercises { get; set; }
     }
 

@@ -5,7 +5,7 @@ namespace HackathonWebApi.Services
 {
     public class MessageService
     {
-        private static readonly string BaseQuestion = $"Answer in less than {Config.MaxTokens} tokens. Respond in Json format with the following schema: {GetJsonSchema()}. Can you give me a one month workout plan based on the following input: ";
+        private static readonly string BaseQuestion = $"Answer in less than {Config.MaxTokens} tokens. Respond in Json format with the following schema: {GetJsonSchema()}. Provide dates in the format YYYY-MM-dd. Can you give me a one month workout plan based on the following input: ";
         private static readonly string UserDescription = $". Here is some information about the athlete: ";
         private static readonly string PlanDescription = $". Here are some requirements for the plan: ";
 
