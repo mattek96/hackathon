@@ -1,42 +1,47 @@
 ﻿using HackathonWebApi.Json;
-using HackathonWebApi.Services.Dto;
+using Microsoft.AspNetCore.Mvc;
 using OpenAI.Net;
-using System.Text.Json;
 
 namespace HackathonWebApi.Services
 {
     public class MvpService(IOpenAIService openAi)
     {
-        public async Task<OpenAiResponse> GetOpenAiResponseDtoAsync(string text)
+        private readonly string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\Database\\database.json");
+
+        public WorkoutPlan GetWorkoutPlan()
         {
-            var response = await openAi.Chat.Get(text, o => 
-                { 
-                    o.MaxTokens = Config.MaxTokens;
-                    o.ResponseFormat = new ChatResponseFormatType {Type = "json_object" };
-                }
+            var workoutPlan = WorkoutPlanConverter.ConvertFromJson(File.ReadAllText(filePath));
+            
+            return workoutPlan;
+        }
+
+        public async Task<ObjectResult> CreateWorkoutPlan(string text)
+        {
+            var response = await openAi.Chat.Get(text, o =>
+            {
+                o.MaxTokens = Config.MaxTokens;
+                o.ResponseFormat = new ChatResponseFormatType { Type = "json_object" };
+            }
             );
 
             if (response.IsSuccess)
             {
-                
                 var jsonResponse = response.Result.Choices.FirstOrDefault().Message.Content;
+
                 try
                 {
-                    var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\Database\\database.json");
                     File.WriteAllText(filePath, jsonResponse);
-                } catch { }
-               
-
-
-                // TODO split into two endpoints
-                // post which returns ok or error
-                // get which returns plan from db
-                var workoutPlan = WorkoutPlanConverter.ConvertFromJson(jsonResponse);
-
-                return new OpenAiResponse(Response: workoutPlan, ErrorMessage: string.Empty);
+                    return new OkObjectResult(new OkResult());
+                }
+                catch (Exception e)
+                {
+                    return new ObjectResult(e.Message);
+                }
             }
-            
-            return new OpenAiResponse(Response: new WorkoutPlan(), ErrorMessage: response.ErrorMessage);
+            else {
+
+                return new ObjectResult(response.ErrorMessage);
+            }
         }
     }
 }
