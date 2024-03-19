@@ -3,7 +3,7 @@ export interface Instructions {
 }
 
 export interface Day {
-  date: string;
+  date?: Date;
   exercises: Instructions[];
 }
 

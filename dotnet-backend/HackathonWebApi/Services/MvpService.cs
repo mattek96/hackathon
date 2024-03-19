@@ -8,11 +8,18 @@ namespace HackathonWebApi.Services
     {
         private readonly string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\Database\\database.json");
 
-        public WorkoutPlan GetWorkoutPlan()
+        public WorkoutPlan? GetWorkoutPlan()
         {
-            var workoutPlan = WorkoutPlanConverter.ConvertFromJson(File.ReadAllText(filePath));
-            
-            return workoutPlan;
+            try
+            {
+                return WorkoutPlanConverter.ConvertFromJson(File.ReadAllText(filePath));
+            }
+            catch
+            {
+
+            }
+
+            return null;
         }
 
         public async Task<ObjectResult> CreateWorkoutPlan(string text)

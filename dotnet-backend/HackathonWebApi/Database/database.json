@@ -1,28 +1,52 @@
 {
-    "Workouts": [
-        {
-            "Date": "19/03/2024",
-            "Exercises": [
-                { "Instruction": "3-mile run at a comfortable pace" },
-                { "Instruction": "Bodyweight exercises like push-ups, squats, and planks for 20 minutes" },
-                { "Instruction": "Stretching and cool down"}
-            ]
-        },
-        {
-            "Date": "21/03/2024",
-            "Exercises": [
-                { "Instruction": "Interval training with 1-minute sprints followed by 2-minute slow jogs, repeat for 20 minutes" },
-                { "Instruction": "Strength training using dumbbells or resistance bands for upper and lower body" },
-                { "Instruction": "Cool down and stretching"}
-            ]
-        },
-        {
-            "Date": "23/03/2024",
-            "Exercises": [
-                { "Instruction": "5-mile run at a moderate pace" },
-                { "Instruction": "Core exercises like crunches, planks, and Russian twists for 20 minutes" },
-                { "Instruction": "Cooldown and stretching"}
-            ]
-        }
-    ]
+  "Days": [
+    {
+      "Date": "2024-03-19",
+      "Exercises": [
+        { "Instruction": "Bicep Curls - 4 sets of 12 reps" },
+        { "Instruction": "Tricep Dips - 3 sets of 15 reps" },
+        { "Instruction": "Hammer Curls - 3 sets of 10 reps" }
+      ]
+    },
+    {
+      "Date": "2024-03-21",
+      "Exercises": [
+        { "Instruction": "Close Grip Bench Press - 4 sets of 10 reps" },
+        { "Instruction": "Standing Tricep Extensions - 3 sets of 12 reps" },
+        { "Instruction": "Preacher Curls - 3 sets of 8 reps" }
+      ]
+    },
+    {
+      "Date": "2024-03-23",
+      "Exercises": [
+        { "Instruction": "Skull Crushers - 4 sets of 10 reps" },
+        { "Instruction": "Chin-Ups - 3 sets of 8 reps" },
+        { "Instruction": "Barbell Curls - 3 sets of 10 reps" }
+      ]
+    },
+    {
+      "Date": "2024-03-26",
+      "Exercises": [
+        { "Instruction": "Tricep Pushdowns - 4 sets of 12 reps" },
+        { "Instruction": "Hammer Curls - 3 sets of 10 reps" },
+        { "Instruction": "Tricep Kickbacks - 3 sets of 12 reps" }
+      ]
+    },
+    {
+      "Date": "2024-03-28",
+      "Exercises": [
+        { "Instruction": "Standing Bicep Cable Curl - 4 sets of 12 reps" },
+        { "Instruction": "Dips - 3 sets of 15 reps" },
+        { "Instruction": "Concentration Curls - 3 sets of 10 reps" }
+      ]
+    },
+    {
+      "Date": "2024-03-30",
+      "Exercises": [
+        { "Instruction": "Overhead Tricep Extension - 4 sets of 12 reps" },
+        { "Instruction": "Preacher Curls - 3 sets of 10 reps" },
+        { "Instruction": "Incline Dumbbell Curls - 3 sets of 12 reps" }
+      ]
+    }
+  ]
 }
