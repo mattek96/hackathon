@@ -13,7 +13,14 @@ const StyledCard = styled.div`
 `;
 
 const StyledCardNext =styled.div`
-  ${StyledCard}
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 10px;
+  width: 700px;
+  border-style: solid;
+  min-height: 100px;
+  height: fit-content;
   background: green;
 `;
 
