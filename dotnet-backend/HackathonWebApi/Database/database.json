@@ -1,27 +1,32 @@
 {
     "Workouts": [
         {
-            "Date": "19/03/2024",
+            "Date": "19.03.2024",
             "Exercises": [
-                { "Instruction": "3-mile run at a comfortable pace" },
-                { "Instruction": "Bodyweight exercises like push-ups, squats, and planks for 20 minutes" },
-                { "Instruction": "Stretching and cool down"}
+                {"Instruction": "5km run at moderate pace"},
+                {"Instruction": "Strength training: focus on legs and core"},
+                {"Instruction": "Stretching and foam rolling"}
             ]
         },
         {
-            "Date": "21/03/2024",
+            "Date": "21.03.2024",
             "Exercises": [
-                { "Instruction": "Interval training with 1-minute sprints followed by 2-minute slow jogs, repeat for 20 minutes" },
-                { "Instruction": "Strength training using dumbbells or resistance bands for upper and lower body" },
-                { "Instruction": "Cool down and stretching"}
+                {"Instruction": "Interval training: 5x400m sprints with 2 min rest"},
+                {"Instruction": "Yoga for flexibility and recovery"}
             ]
         },
         {
-            "Date": "23/03/2024",
+            "Date": "23.03.2024",
             "Exercises": [
-                { "Instruction": "5-mile run at a moderate pace" },
-                { "Instruction": "Core exercises like crunches, planks, and Russian twists for 20 minutes" },
-                { "Instruction": "Cooldown and stretching"}
+                {"Instruction": "Long run: 10-12km at easy pace"},
+                {"Instruction": "Strength training: focus on upper body"}
+            ]
+        },
+        {
+            "Date": "25.03.2024",
+            "Exercises": [
+                {"Instruction": "Hill repeats: 6x200m sprints on incline"},
+                {"Instruction": "Stretching and foam rolling"}
             ]
         }
     ]

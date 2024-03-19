@@ -6,10 +6,13 @@ const StyledInput = styled.input`
 `;
 
 interface Props {
-  value: string;
+  value: string | number;
+  type: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function Input({ value, onChange }: Props) {
-  return <StyledInput value={value} onChange={onChange}></StyledInput>;
+export default function Input({ type, value, onChange }: Props) {
+  return (
+    <StyledInput type={type} value={value} onChange={onChange}></StyledInput>
+  );
 }

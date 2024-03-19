@@ -11,6 +11,12 @@ export interface WorkoutPlan {
   days: Day[];
 }
 
-export interface OpenAiRequestDto {
+export interface UserInput {
   freeText: string;
+  athleticism: number;
+  startDate?: string;
+  age: number;
+  sex: number;
+  frequency: number;
+  durationInWeeks: number;
 }
