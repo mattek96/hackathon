@@ -5,6 +5,8 @@ import { SetStateAction, useState } from "react";
 import { UserInput } from "../shared/model.tsx";
 import Dropdown from "../shared/Dropdown.tsx";
 import Input from "../shared/Input.tsx";
+import LoadingPage from "../shared/LoadingPage.tsx";
+import { useNavigate } from "react-router-dom";
 
 const Section = styled.div`
   display: flex;
@@ -30,6 +32,9 @@ export default function OtherPage() {
   const [durationInWeeks, setDurationInWeeks] = useState<number>(0);
   const [workoutsPerWeek, setWorkoutsPerWeek] = useState<number>(0);
   const [trainingGoal, setTrainingGoal] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
+  const goToHomePage = () => navigate('/');
 
   function postUserInformation() {
     const request: UserInput = {
@@ -40,10 +45,11 @@ export default function OtherPage() {
       frequency: workoutsPerWeek,
       durationInWeeks: durationInWeeks,
     };
+    setIsLoading(true);
 
-    remoteService.post<UserInput>("/mvp", request).then((result: any) => {
-      console.log(result);
-    });
+    remoteService.post<UserInput>("/mvp", request).then(() => {
+      goToHomePage();
+    }).catch( () => {setIsLoading(false);});
   }
 
   const callbackSetSex = (newValue: SetStateAction<string>) => {
@@ -58,41 +64,49 @@ export default function OtherPage() {
     setWorkoutsPerWeek(newValue);
   };
 
-  return (
-    <Section>
-      <ExampleTitle>Please select your user profile</ExampleTitle>
-
-      <label>Gender</label>
-      <Dropdown options={sexOptions} callback={callbackSetSex}></Dropdown>
-      <label>Athleticism</label>
-      <Dropdown
-        options={sportLevelOptions}
-        callback={callbackSetAthleticism}
-      ></Dropdown>
-      <label>Age</label>
-      <Input
-        type="number"
-        value={age}
-        onChange={(e) => setAge(e.target.valueAsNumber)}
-      />
-      <label>Duration in weeks</label>
-      <Input
-        type="number"
-        value={durationInWeeks}
-        onChange={(e) => setDurationInWeeks(e.target.valueAsNumber)}
-      />
-      <label>Training sessions per week</label>
-      <Dropdown
-        options={workoutsPerWeekOptions}
-        callback={callbackSetWorkoutsPerWeek}
-      ></Dropdown>
-      <label>Describe your training goal:</label>
-      <Input
-        type="string"
-        value={trainingGoal}
-        onChange={(e) => setTrainingGoal(e.target.value)}
-      />
-      <Button onClick={postUserInformation}>Submit</Button>
-    </Section>
-  );
+  if (isLoading == undefined ||!isLoading)
+  {
+    return (
+      <Section>
+        <ExampleTitle>Please select your user profile</ExampleTitle>
+  
+        <label>Gender</label>
+        <Dropdown options={sexOptions} callback={callbackSetSex}></Dropdown>
+        <label>Athleticism</label>
+        <Dropdown
+          options={sportLevelOptions}
+          callback={callbackSetAthleticism}
+        ></Dropdown>
+        <label>Age</label>
+        <Input
+          type="number"
+          value={age}
+          onChange={(e) => setAge(e.target.valueAsNumber)}
+        />
+        <label>Duration in weeks</label>
+        <Input
+          type="number"
+          value={durationInWeeks}
+          onChange={(e) => setDurationInWeeks(e.target.valueAsNumber)}
+        />
+        <label>Training sessions per week</label>
+        <Dropdown
+          options={workoutsPerWeekOptions}
+          callback={callbackSetWorkoutsPerWeek}
+        ></Dropdown>
+        <label>Describe your training goal:</label>
+        <Input
+          type="string"
+          value={trainingGoal}
+          onChange={(e) => setTrainingGoal(e.target.value)}
+        />
+        <Button onClick={postUserInformation}>Submit</Button>
+      </Section>
+    );
+  }
+  else
+  {
+    return <LoadingPage/>
+  }
+ 
 }
