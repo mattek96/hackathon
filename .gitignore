@@ -460,4 +460,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-/dotnet-backend/HackathonWebApi/Database
+/dotnet-backend/HackathonWebApi/Database/*
