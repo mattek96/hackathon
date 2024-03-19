@@ -3,6 +3,7 @@ import styled from "styled-components";
 const StyledInput = styled.input`
   font-size: 20px;
   padding: 10px;
+  color: var(--secondary);
 `;
 
 interface Props {

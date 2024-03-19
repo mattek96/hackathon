@@ -26,11 +26,11 @@ const sportLevelOptions = ["Beginner", "Intermediate", "Advanced"];
 const workoutsPerWeekOptions = ["1", "2", "3", "4", "5", "6", "7"];
 
 export default function OtherPage() {
-  const [sex, setSex] = useState<string>("");
-  const [age, setAge] = useState<number>(0);
-  const [athleticism, setAthleticism] = useState<string>("Beginner");
-  const [durationInWeeks, setDurationInWeeks] = useState<number>(0);
-  const [workoutsPerWeek, setWorkoutsPerWeek] = useState<number>(0);
+  const [sex, setSex] = useState<string>(sexOptions[0]);
+  const [age, setAge] = useState<number>(25);
+  const [athleticism, setAthleticism] = useState<string>(sportLevelOptions[0]);
+  const [durationInWeeks, setDurationInWeeks] = useState<number>(2);
+  const [workoutsPerWeek, setWorkoutsPerWeek] = useState<number>(4);
   const [trainingGoal, setTrainingGoal] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const navigate = useNavigate();
