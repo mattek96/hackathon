@@ -1,4 +1,5 @@
 using HackathonWebApi.Entities;
+using HackathonWebApi.Json;
 using HackathonWebApi.Services;
 using HackathonWebApi.Services.Dto;
 using Microsoft.AspNetCore.Mvc;
@@ -16,10 +17,16 @@ namespace HackathonWebApi.Controllers
             this.exampleService = openAiResponseService;
         }
 
-        [HttpPost]
-        public async Task<OpenAiResponse> GetOpenAiResponseAsync([FromBody] UserInput input)
+        [HttpGet]
+        public  WorkoutPlan GetWorkoutPlan()
         {
-            return await exampleService.GetOpenAiResponseDtoAsync(MessageService.GetConstructedMessage(input));
+            return exampleService.GetWorkoutPlan();
+        }
+
+        [HttpPost]
+        public async Task<ObjectResult> CreateWorkoutPlan([FromBody] UserInput input)
+        {
+            return await exampleService.CreateWorkoutPlan(MessageService.GetConstructedMessage(input));
         }
     }
 }
