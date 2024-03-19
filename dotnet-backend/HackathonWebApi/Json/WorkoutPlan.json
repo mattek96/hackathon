@@ -1,5 +1,5 @@
 {
-    "Workouts": [
+    "Days": [
     {
         "Date": "string",
         "Exercises": [
