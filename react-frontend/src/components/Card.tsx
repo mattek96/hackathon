@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Day, Instructions } from "../shared/model";
+import { DayWithUrl, ExtendedExercise } from "../shared/model";
 
 const StyledCard = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ const StyledCardNext =styled.div`
 `;
 
 interface Props {
-  day: Day;
+  day: DayWithUrl;
   nextExercise: boolean;
 }
 
@@ -34,7 +34,7 @@ export default function Card({ day, nextExercise }: Props) {
     return (
       <StyledCardNext className="CardNext">
       <p>{day.date?.toString()}</p>
-      {day.exercises.map((exercise: Instructions) => (
+      {day.exercises.map((exercise: ExtendedExercise) => (
         <p>{exercise.instruction}</p>
       ))}
     </StyledCardNext>
@@ -43,8 +43,11 @@ export default function Card({ day, nextExercise }: Props) {
   return (
     <StyledCard>
       <p>{day.date?.toString()}</p>
-      {day.exercises.map((exercise: Instructions) => (
-        <p>{exercise.instruction}</p>
+      {day.exercises.map((exercise: ExtendedExercise) => (
+        <div key={Math.random()}> {/* Make sure to add a unique key */}
+            <p>{exercise.instruction}</p>
+            <img src={exercise.url} alt="Instruction Image" />
+      </div>
       ))}
     </StyledCard>
     

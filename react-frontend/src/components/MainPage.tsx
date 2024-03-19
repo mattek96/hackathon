@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import remoteService from "../services/RemoteService.tsx";
 import { useEffect, useState } from "react";
-import { Day, WorkoutPlan } from "../shared/model.tsx";
+import { DayWithUrl, WorkoutPlanWithUrl } from "../shared/model.tsx";
 import Card from "./Card.tsx";
 
 const Section = styled.div`
@@ -18,10 +18,10 @@ const Title = styled.h3`
 `;
 
 export default function MainPage() {
-  const [workoutPlan, setWorkoutPlan] = useState<WorkoutPlan | undefined>(
+  const [workoutPlan, setWorkoutPlan] = useState<WorkoutPlanWithUrl | undefined>(
     undefined
   );
-  const [nextDay, setNextDay] = useState<Day | undefined>();
+  const [nextDay, setNextDay] = useState<DayWithUrl | undefined>();
 
   useEffect(() => {
     loadData();
@@ -34,7 +34,7 @@ export default function MainPage() {
   }, [workoutPlan]);
 
   function loadData() {
-    remoteService.get<WorkoutPlan>("/mvp").then((value: WorkoutPlan) => {
+    remoteService.get<WorkoutPlanWithUrl>("/mvp").then((value: WorkoutPlanWithUrl) => {
       if (value) {
         setWorkoutPlan(value);
         document.getElementsByClassName("CardNext")[0].scrollIntoView();
@@ -57,7 +57,7 @@ export default function MainPage() {
   return (
     <Section>
       <Title>Training Plan</Title>
-      {workoutPlan?.days?.map((day: Day) => (
+      {workoutPlan?.days?.map((day: DayWithUrl) => (
         <Card day={day} nextExercise={day === nextDay}></Card>
       ))}
     </Section>

@@ -3,110 +3,18 @@
         {
             "Date": "2024-03-14",
             "Exercises": [
-                { "Instruction": "20 min easy run" }
-            ]
-        },
-        {
-            "Date": "2024-03-15",
-            "Exercises": [
-                { "Instruction": "Rest day" }
+                {
+                    "Instruction": "5-minute cool down walk"
+                }
             ]
         },
         {
             "Date": "2024-03-16",
             "Exercises": [
-                { "Instruction": "20 min easy run" }
+                {
+                    "Instruction": "5-minute cool down walk"
+                }
             ]
         },
-        {
-            "Date": "2024-03-17",
-            "Exercises": [
-                { "Instruction": "Rest day" }
-            ]
-        },
-        {
-            "Date": "2024-03-18",
-            "Exercises": [
-                { "Instruction": "20 min easy run" }
-            ]
-        },
-        {
-            "Date": "2024-03-19",
-            "Exercises": [
-                { "Instruction": "Rest day" }
-            ]
-        },
-        {
-            "Date": "2024-03-20",
-            "Exercises": [
-                { "Instruction": "30 min easy run" }
-            ]
-        },
-        {
-            "Date": "2024-03-21",
-            "Exercises": [
-                { "Instruction": "Rest day" }
-            ]
-        },
-        {
-            "Date": "2024-03-22",
-            "Exercises": [
-                { "Instruction": "30 min easy run" }
-            ]
-        },
-        {
-            "Date": "2024-03-23",
-            "Exercises": [
-                { "Instruction": "Rest day" }
-            ]
-        },
-        {
-            "Date": "2024-03-24",
-            "Exercises": [
-                { "Instruction": "30 min easy run" }
-            ]
-        },
-        {
-            "Date": "2024-03-25",
-            "Exercises": [
-                { "Instruction": "Rest day" }
-            ]
-        },
-        {
-            "Date": "2024-03-26",
-            "Exercises": [
-                { "Instruction": "40 min easy run" }
-            ]
-        },
-        {
-            "Date": "2024-03-27",
-            "Exercises": [
-                { "Instruction": "Rest day" }
-            ]
-        },
-        {
-            "Date": "2024-03-28",
-            "Exercises": [
-                { "Instruction": "40 min easy run" }
-            ]
-        },
-        {
-            "Date": "2024-03-29",
-            "Exercises": [
-                { "Instruction": "Rest day" }
-            ]
-        },
-        {
-            "Date": "2024-03-30",
-            "Exercises": [
-                { "Instruction": "40 min easy run" }
-            ]
-        },
-        {
-            "Date": "2024-03-31",
-            "Exercises": [
-                { "Instruction": "Rest day" }
-            ]
-        }
     ]
 }

@@ -18,9 +18,9 @@ namespace HackathonWebApi.Controllers
         }
 
         [HttpGet]
-        public  WorkoutPlan GetWorkoutPlan()
+        public async Task<WorkoutPlan> GetWorkoutPlanAsync()
         {
-            return exampleService.GetWorkoutPlan();
+            return await exampleService.GetWorkoutPlanAsync();
         }
 
         [HttpPost]

@@ -1,18 +1,23 @@
 ﻿using HackathonWebApi.Json;
 using Microsoft.AspNetCore.Mvc;
 using OpenAI.Net;
+using System.Xml.Linq;
 
 namespace HackathonWebApi.Services
 {
-    public class MvpService(IOpenAIService openAi)
+    public class MvpService(IOpenAIService openAi, ImageService imageService)
     {
         private readonly string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\Database\\database.json");
 
-        public WorkoutPlan? GetWorkoutPlan()
+        public async Task<WorkoutPlanWithUrl?> GetWorkoutPlanAsync()
         {
             try
             {
-                return WorkoutPlanConverter.ConvertFromJson(File.ReadAllText(filePath));
+                var plan = WorkoutPlanConverter.ConvertFromJson(File.ReadAllText(filePath));
+
+                var planWithUrls = await plan.AddUrlToExercises(imageService);
+
+                return planWithUrls; // then adapt front end to read in files 
             }
             catch
             {
