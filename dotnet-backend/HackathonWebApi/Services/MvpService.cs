@@ -18,11 +18,19 @@ namespace HackathonWebApi.Services
 
             if (response.IsSuccess)
             {
+                
                 var jsonResponse = response.Result.Choices.FirstOrDefault().Message.Content;
-                // TODO store json in DB
+                try
+                {
+                    var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\Database\\database.json");
+                    File.WriteAllText(filePath, jsonResponse);
+                } catch { }
+               
+
+
                 // TODO split into two endpoints
-                    // post which returns ok or error
-                    // get which returns plan from db
+                // post which returns ok or error
+                // get which returns plan from db
                 var workoutPlan = WorkoutPlanConverter.ConvertFromJson(jsonResponse);
 
                 return new OpenAiResponse(Response: workoutPlan, ErrorMessage: string.Empty);
