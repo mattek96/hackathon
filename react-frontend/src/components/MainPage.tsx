@@ -47,6 +47,7 @@ export default function MainPage() {
     <Section>
       <ExampleTitle>Please describe your training idea</ExampleTitle>
       <Input
+        type="string"
         value={openAiRequest}
         onChange={(e) => setOpenAiRequest(e.target.value)}
       />
