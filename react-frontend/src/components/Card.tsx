@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { DayWithUrl, ExtendedExercise } from "../shared/model";
+import { useState } from "react";
+import ImageViewerPopup from "./ImageViewerPopup";
 
 const StyledCard = styled.div`
   display: flex;
@@ -30,6 +32,21 @@ interface Props {
 }
 
 export default function Card({ day, nextExercise }: Props) {
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
+  
+  // Define a function to handle button click and navigate to a new page which displays the image and a button to navigate 
+  // back -> home 
+  const handleButtonClick = (imageUrl: string) => {
+    setImageUrl(imageUrl); 
+    setShowPopup(true);
+  }
+
+  const handleClosePopup = () => {
+    setImageUrl(null); 
+    setShowPopup(false); 
+  };
+
   if(nextExercise){
     return (
       <StyledCardNext className="CardNext">
@@ -44,12 +61,16 @@ export default function Card({ day, nextExercise }: Props) {
     <StyledCard>
       <p>{day.date?.toString()}</p>
       {day.exercises.map((exercise: ExtendedExercise) => (
-        <div key={Math.random()}> {/* Make sure to add a unique key */}
+        <div key={Math.random()}> {/* TODO: Make sure to add a unique key */}
             <p>{exercise.instruction}</p>
-            <img src={exercise.url} alt="Instruction Image" />
-      </div>
+            <button onClick={() => handleButtonClick(exercise.url)}>View Image</button>
+            {showPopup && imageUrl && (<ImageViewerPopup imageUrl={imageUrl} onClose={handleClosePopup} />
+      )}
+        </div>
       ))}
     </StyledCard>
-    
   );
 }
+
+
+
