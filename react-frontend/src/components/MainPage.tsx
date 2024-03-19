@@ -33,11 +33,6 @@ export default function MainPage() {
     }
   }, [workoutPlan]);
 
-  useEffect(() => {
-    console.log("Test");
-    console.log(nextDay);
-  }, [nextDay]);
-
   function loadData() {
     remoteService.get<WorkoutPlan>("/mvp").then((value: WorkoutPlan) => {
       if (value) {
@@ -63,7 +58,7 @@ export default function MainPage() {
     <Section>
       <Title>Training Plan</Title>
       {workoutPlan?.days?.map((day: Day) => (
-        <Card day={day}></Card>
+        <Card day={day} nextExercise={day === nextDay}></Card>
       ))}
     </Section>
   );
