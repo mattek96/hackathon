@@ -124,7 +124,7 @@ export default function Header() {
           <Logo src={logo} alt="Logo" />
         </Link>
         <NavLink to="/">
-          <Title>Ai Excercise Planner</Title>
+          <Title>trAIner</Title>
         </NavLink>
         <HamburgerMenuPlaceholder></HamburgerMenuPlaceholder>
       </HeaderSection>
