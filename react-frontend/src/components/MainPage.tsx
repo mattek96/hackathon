@@ -25,6 +25,7 @@ export default function MainPage() {
     undefined
   );
   const [nextDay, setNextDay] = useState<Day | undefined>();
+  
 
   useEffect(() => {
     loadData();
@@ -70,6 +71,7 @@ export default function MainPage() {
       {workoutPlan?.days.map((day: Day, index) => (
         <Card key={index} day={day} nextExercise={day === nextDay}></Card>
       ))}
+
     </Section>
   );
 }

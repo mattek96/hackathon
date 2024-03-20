@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using HackathonWebApi.Services;
+using Newtonsoft.Json;
 
 namespace HackathonWebApi.Json
 {

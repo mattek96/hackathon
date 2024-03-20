@@ -1,10 +1,11 @@
 ﻿using HackathonWebApi.Json;
 using Microsoft.AspNetCore.Mvc;
 using OpenAI.Net;
+using System.Xml.Linq;
 
 namespace HackathonWebApi.Services
 {
-    public class MvpService(IOpenAIService openAi)
+    public class MvpService(IOpenAIService openAi, ImageService imageService)
     {
         private readonly string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\Database\\database.json");
 
