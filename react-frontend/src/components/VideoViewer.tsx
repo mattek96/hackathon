@@ -44,7 +44,9 @@ const ImageViewerPopup: React.FC<ImageViewerPopupProps> = ({ instruction }) => {
   return (
     <div className="popup">
       <div className="popup-content">
-        <label>{videoUrl}</label>
+        <a href={videoUrl} rel="noreferrer" target="_blank">
+          URL
+        </a>
         <Button onClick={handleClosePopup}>Close</Button>
       </div>
     </div>
