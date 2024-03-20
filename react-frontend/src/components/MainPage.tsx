@@ -18,6 +18,8 @@ const Title = styled.h3`
   padding-bottom: 4%;
 `;
 
+const isTrue = false;
+
 export default function MainPage() {
   const [workoutPlan, setWorkoutPlan] = useState<WorkoutPlan | undefined>(
     undefined
@@ -26,13 +28,15 @@ export default function MainPage() {
 
   useEffect(() => {
     loadData();
-    scrollNextIntoView();
   }, []);
+
+  useEffect(() => {
+    scrollNextIntoView();
+  });
 
   useEffect(() => {
     if (workoutPlan != null) {
       setNextWorkout();
-      scrollNextIntoView();
     }
   }, [workoutPlan]);
 
