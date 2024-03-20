@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Day, Instructions } from "../shared/model";
 import { useState } from "react";
 import ImageViewerPopup from "./ImageViewerPopup";
-import remoteService from "../services/RemoteService.tsx";
+import Button from "../shared/Button.tsx";
 
 const StyledCard = styled.div`
   display: flex;
@@ -23,36 +23,16 @@ interface Props {
 }
 
 export default function Card({ day, nextExercise }: Props) {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
-  const [showPopup, setShowPopup] = useState<boolean>(false);
-  
-  const handleButtonClick = (instructionText: string) => {
-    remoteService.post<string>("/mvp/image", instructionText).then((value: string) => {
-      if (value) {
-        setImageUrl(value); 
-        setShowPopup(true);
-      }
-    }).catch( () => {setShowPopup(false);});
-
-    
-  }
-
-  const handleClosePopup = () => {
-    setImageUrl(null); 
-    setShowPopup(false); 
-  };
-
   if (nextExercise) {
     return (
       <StyledCard $color className="CardNext">
-      <p>{day.date}</p>
+        <p>{day.date}</p>
         {day.exercises.map((exercise: Instructions, index) => (
           <div key={index}>
-          <p>{exercise.instruction}</p>
-          <button onClick={() => handleButtonClick(exercise.instruction)}>View Image</button>
-          {showPopup && imageUrl && (<ImageViewerPopup imageUrl={imageUrl} onClose={handleClosePopup} />)}
+            <p>{exercise.instruction}</p>
+            <ImageViewerPopup instruction={exercise.instruction} />
           </div>
-        ))} 
+        ))}
       </StyledCard>
     );
   }
@@ -62,14 +42,10 @@ export default function Card({ day, nextExercise }: Props) {
       <p>{day.date}</p>
       {day.exercises.map((exercise: Instructions, index) => (
         <div key={index}>
-        <p>{exercise.instruction}</p>
-        <button onClick={() => handleButtonClick(exercise.instruction)}>View Image</button>
-        {showPopup && imageUrl && (<ImageViewerPopup imageUrl={imageUrl} onClose={handleClosePopup} />)}
+          <p>{exercise.instruction}</p>
+          <ImageViewerPopup instruction={exercise.instruction} />
         </div>
-      ))} 
+      ))}
     </StyledCard>
   );
 }
-
-
-

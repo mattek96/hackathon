@@ -3,61 +3,67 @@
         {
             "Date": "2024-03-15",
             "Exercises": [
-                {"Instruction": "Run 5 km at a comfortable pace"}
+                {
+                    "Instruction": "30 minutes of jogging at a comfortable pace"
+                },
+                {
+                    "Instruction": "15 minutes of stretching"
+                }
             ]
         },
         {
-            "Date": "2024-03-17",
+            "Date": "2024-03-18",
             "Exercises": [
-                {"Instruction": "Run 5 km at a comfortable pace"}
-            ]
-        },
-        {
-            "Date": "2024-03-19",
-            "Exercises": [
-                {"Instruction": "Run 5 km at a comfortable pace"}
+                {
+                    "Instruction": "20 minutes of interval running (1 min fast, 1 min slow)"
+                },
+                {
+                    "Instruction": "15 minutes of core exercises (planks, crunches)"
+                }
             ]
         },
         {
             "Date": "2024-03-21",
             "Exercises": [
-                {"Instruction": "Run 5 km at a comfortable pace"}
-            ]
-        },
-        {
-            "Date": "2024-03-22",
-            "Exercises": [
-                {"Instruction": "Rest day"}
+                {
+                    "Instruction": "35 minutes of brisk walking"
+                },
+                {
+                    "Instruction": "20 minutes of yoga or meditation for relaxation"
+                }
             ]
         },
         {
             "Date": "2024-03-24",
             "Exercises": [
-                {"Instruction": "Run 6 km at a comfortable pace"}
+                {
+                    "Instruction": "40 minutes of cycling at a moderate pace"
+                },
+                {
+                    "Instruction": "15 minutes of leg exercises (lunges, squats)"
+                }
             ]
         },
         {
-            "Date": "2024-03-26",
+            "Date": "2024-03-27",
             "Exercises": [
-                {"Instruction": "Run 6 km at a comfortable pace"}
-            ]
-        },
-        {
-            "Date": "2024-03-28",
-            "Exercises": [
-                {"Instruction": "Run 6 km at a comfortable pace"}
+                {
+                    "Instruction": "25 minutes of hill running (alternate fast and slow intervals)"
+                },
+                {
+                    "Instruction": "20 minutes of upper body strength training (push-ups, dumbbell curls)"
+                }
             ]
         },
         {
             "Date": "2024-03-30",
             "Exercises": [
-                {"Instruction": "Run 7 km at a comfortable pace"}
-            ]
-        },
-        {
-            "Date": "2024-03-31",
-            "Exercises": [
-                {"Instruction": "Rest day"}
+                {
+                    "Instruction": "45 minutes of jogging at a steady pace"
+                },
+                {
+                    "Instruction": "20 minutes of stretching and foam rolling"
+                }
             ]
         }
     ]
