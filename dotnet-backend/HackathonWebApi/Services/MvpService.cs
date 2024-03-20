@@ -1,4 +1,5 @@
-﻿using HackathonWebApi.Json;
+﻿using Google.Apis.YouTube.v3;
+using HackathonWebApi.Json;
 using Microsoft.AspNetCore.Mvc;
 using OpenAI.Net;
 
@@ -49,6 +50,28 @@ namespace HackathonWebApi.Services
 
                 return new ObjectResult(response.ErrorMessage);
             }
+        }
+
+        public async Task<string> GetYoutubeVideoAsync(string instruction)
+        {
+            var youtubeService = new YouTubeService(new Google.Apis.Services.BaseClientService.Initializer()
+            {
+                ApiKey = "AIzaSyD-NtciOuQ3NvAMIwz4E_6OJrAv868kmsM",
+                ApplicationName = "TrAIner"
+            });
+
+            var seachListRequest = youtubeService.Search.List("snippet");
+
+            seachListRequest.Q = $"{instruction}";
+            seachListRequest.MaxResults = 1;
+
+            var searchResponse = await seachListRequest.ExecuteAsync();
+
+            var videoId = searchResponse.Items.First().Id.VideoId;
+
+            var url = $"https://www.youtube.com/watch?v={videoId}";
+
+            return url;
         }
     }
 }
