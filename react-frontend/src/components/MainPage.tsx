@@ -26,12 +26,13 @@ export default function MainPage() {
 
   useEffect(() => {
     loadData();
+    scrollNextIntoView();
   }, []);
 
   useEffect(() => {
     if (workoutPlan != null) {
       setNextWorkout();
-      document.getElementsByClassName("CardNext")[0].scrollIntoView();
+      scrollNextIntoView();
     }
   }, [workoutPlan]);
 
@@ -53,6 +54,11 @@ export default function MainPage() {
       );
     });
     setNextDay(nextWorkout.at(0));
+  }
+
+  function scrollNextIntoView() {
+    console.log("Executing ScrollIntoView!");
+    document.getElementsByClassName("CardNext")[0]?.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   return (
