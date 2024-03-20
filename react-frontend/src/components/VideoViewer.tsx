@@ -44,9 +44,15 @@ const ImageViewerPopup: React.FC<ImageViewerPopupProps> = ({ instruction }) => {
   return (
     <div className="popup">
       <div className="popup-content">
-        <a href={videoUrl} rel="noreferrer" target="_blank">
-          URL
-        </a>
+        <iframe
+          width="560"
+          height="350"
+          src={videoUrl}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title="Embedded youtube"
+        />
         <Button onClick={handleClosePopup}>Close</Button>
       </div>
     </div>
