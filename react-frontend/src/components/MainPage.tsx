@@ -8,6 +8,7 @@ const Section = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
 `;
 
 const Title = styled.h3`
@@ -30,6 +31,7 @@ export default function MainPage() {
   useEffect(() => {
     if (workoutPlan != null) {
       setNextWorkout();
+      document.getElementsByClassName("CardNext")[0].scrollIntoView();
     }
   }, [workoutPlan]);
 
@@ -37,7 +39,6 @@ export default function MainPage() {
     remoteService.get<WorkoutPlan>("/mvp").then((value: WorkoutPlan) => {
       if (value) {
         setWorkoutPlan(value);
-        document.getElementsByClassName("CardNext")[0].scrollIntoView();
       }
     });
   }
