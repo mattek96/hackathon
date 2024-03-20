@@ -10,18 +10,8 @@ const StyledCard = styled.div`
   border-style: solid;
   min-height: 100px;
   height: fit-content;
-`;
-
-const StyledCardNext =styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  padding: 10px;
-  width: 700px;
-  border-style: solid;
-  min-height: 100px;
-  height: fit-content;
-  background: green;
+  background-color: ${(props) => (props.$color ? "green" : "white")};
+  margin: 10px;
 `;
 
 interface Props {
@@ -30,23 +20,23 @@ interface Props {
 }
 
 export default function Card({ day, nextExercise }: Props) {
-  if(nextExercise){
+  if (nextExercise) {
     return (
-      <StyledCardNext className="CardNext">
-      <p>{day.date?.toString()}</p>
-      {day.exercises.map((exercise: Instructions) => (
-        <p>{exercise.instruction}</p>
-      ))}
-    </StyledCardNext>
-    )
+      <StyledCard $color className="CardNext">
+        <p>{day.date}</p>
+        {day.exercises.map((exercise: Instructions, index) => (
+          <p key={index}>{exercise.instruction}</p>
+        ))}
+      </StyledCard>
+    );
   }
+
   return (
     <StyledCard>
-      <p>{day.date?.toString()}</p>
-      {day.exercises.map((exercise: Instructions) => (
-        <p>{exercise.instruction}</p>
+      <p>{day.date}</p>
+      {day.exercises.map((exercise: Instructions, index) => (
+        <p key={index}>{exercise.instruction}</p>
       ))}
     </StyledCard>
-    
   );
 }
