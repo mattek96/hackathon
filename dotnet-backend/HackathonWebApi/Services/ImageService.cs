@@ -4,9 +4,12 @@ namespace HackathonWebApi.Services
 {
     public class ImageService(IOpenAIService openAi)
     {
+        private const string InstructionMessage= "Please generate an image of a person performing the following exercise: ";
+
         public async Task<string> GetImageforInstrucion(string instruction) 
         {
-            var imageResponseRequest = await openAi.Images.Generate(instruction, options => {
+            var promptInstruction = InstructionMessage + instruction;
+            var imageResponseRequest = await openAi.Images.Generate(promptInstruction, options => {
                 options.N = 1;
                 options.Size = "512x512";
             });
