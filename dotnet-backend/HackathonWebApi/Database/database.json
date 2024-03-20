@@ -1,20 +1,64 @@
 {
     "Days": [
         {
-            "Date": "2024-03-14",
+            "Date": "2024-03-15",
             "Exercises": [
-                {
-                    "Instruction": "5-minute cool down walk"
-                }
+                {"Instruction": "Run 5 km at a comfortable pace"}
             ]
         },
         {
-            "Date": "2024-03-16",
+            "Date": "2024-03-17",
             "Exercises": [
-                {
-                    "Instruction": "5-minute cool down walk"
-                }
+                {"Instruction": "Run 5 km at a comfortable pace"}
             ]
         },
+        {
+            "Date": "2024-03-19",
+            "Exercises": [
+                {"Instruction": "Run 5 km at a comfortable pace"}
+            ]
+        },
+        {
+            "Date": "2024-03-21",
+            "Exercises": [
+                {"Instruction": "Run 5 km at a comfortable pace"}
+            ]
+        },
+        {
+            "Date": "2024-03-22",
+            "Exercises": [
+                {"Instruction": "Rest day"}
+            ]
+        },
+        {
+            "Date": "2024-03-24",
+            "Exercises": [
+                {"Instruction": "Run 6 km at a comfortable pace"}
+            ]
+        },
+        {
+            "Date": "2024-03-26",
+            "Exercises": [
+                {"Instruction": "Run 6 km at a comfortable pace"}
+            ]
+        },
+        {
+            "Date": "2024-03-28",
+            "Exercises": [
+                {"Instruction": "Run 6 km at a comfortable pace"}
+            ]
+        },
+        {
+            "Date": "2024-03-30",
+            "Exercises": [
+                {"Instruction": "Run 7 km at a comfortable pace"}
+            ]
+        },
+        {
+            "Date": "2024-03-31",
+            "Exercises": [
+                {"Instruction": "Rest day"}
+            ]
+        }
     ]
 }

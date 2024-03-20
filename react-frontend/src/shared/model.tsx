@@ -1,10 +1,10 @@
-export interface Exercise {
+export interface Instructions {
   instruction: string;
 }
 
 export interface Day {
-  date?: Date;
-  exercises: Exercise[];
+  date: Date;
+  exercises: Instructions[];
 }
 
 export interface WorkoutPlan {

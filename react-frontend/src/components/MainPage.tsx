@@ -8,6 +8,7 @@ const Section = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
 `;
 
 const Title = styled.h3`
@@ -16,6 +17,8 @@ const Title = styled.h3`
   color: var(--secondary);
   padding-bottom: 4%;
 `;
+
+const isTrue = false;
 
 export default function MainPage() {
   const [workoutPlan, setWorkoutPlan] = useState<WorkoutPlan | undefined>(
@@ -29,6 +32,10 @@ export default function MainPage() {
   }, []);
 
   useEffect(() => {
+    scrollNextIntoView();
+  });
+
+  useEffect(() => {
     if (workoutPlan != null) {
       setNextWorkout();
     }
@@ -38,7 +45,6 @@ export default function MainPage() {
     remoteService.get<WorkoutPlan>("/mvp").then((value: WorkoutPlan) => {
       if (value) {
         setWorkoutPlan(value);
-        document.getElementsByClassName("CardNext")[0].scrollIntoView();
       }
     });
   }
@@ -55,11 +61,16 @@ export default function MainPage() {
     setNextDay(nextWorkout.at(0));
   }
 
+  function scrollNextIntoView() {
+    console.log("Executing ScrollIntoView!");
+    document.getElementsByClassName("CardNext")[0]?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
   return (
     <Section>
       <Title>Training Plan</Title>
-      {workoutPlan?.days?.map((day: Day) => (
-        <Card day={day} nextExercise={day === nextDay}></Card>
+      {workoutPlan?.days.map((day: Day, index) => (
+        <Card key={index} day={day} nextExercise={day === nextDay}></Card>
       ))}
 
     </Section>
