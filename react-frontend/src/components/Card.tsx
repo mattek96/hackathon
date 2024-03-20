@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { Day, Instructions } from "../shared/model";
+import { useState } from "react";
+import ImageViewerPopup from "./ImageViewerPopup";
+import Button from "../shared/Button.tsx";
 
 const StyledCard = styled.div`
   display: flex;
@@ -25,7 +28,10 @@ export default function Card({ day, nextExercise }: Props) {
       <StyledCard $color className="CardNext">
         <p>{day.date}</p>
         {day.exercises.map((exercise: Instructions, index) => (
-          <p key={index}>{exercise.instruction}</p>
+          <div key={index}>
+            <p>{exercise.instruction}</p>
+            <ImageViewerPopup instruction={exercise.instruction} />
+          </div>
         ))}
       </StyledCard>
     );
@@ -35,7 +41,10 @@ export default function Card({ day, nextExercise }: Props) {
     <StyledCard>
       <p>{day.date}</p>
       {day.exercises.map((exercise: Instructions, index) => (
-        <p key={index}>{exercise.instruction}</p>
+        <div key={index}>
+          <p>{exercise.instruction}</p>
+          <ImageViewerPopup instruction={exercise.instruction} />
+        </div>
       ))}
     </StyledCard>
   );

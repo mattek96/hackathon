@@ -14,6 +14,7 @@ namespace HackathonWebApi
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<MvpService>();
+            builder.Services.AddScoped<ImageService>();
 
             //Add OpenAI API key
             builder.Services.AddOpenAIServices(options =>

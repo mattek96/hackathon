@@ -5,7 +5,7 @@ namespace HackathonWebApi.Services
 {
     public class MessageService
     {
-        private static readonly string BaseQuestion = $"Answer in less than {Config.MaxTokens} tokens. Respond in Json format with the following schema: {GetJsonSchema()}. Provide dates in the format YYYY-MM-dd. Can you give me a one month workout plan based on the following input: ";
+        private static readonly string BaseQuestion = $"Answer in less than {Config.MaxTokens} tokens. Respond in Json format with the following schema: {GetJsonSchema()}. Provide dates in the format YYYY-MM-dd. Can you give me a workout plan based on the following input: ";
         private static readonly string UserDescription = $". Here is some information about the athlete: ";
         private static readonly string PlanDescription = $". Here are some requirements for the plan: ";
 
@@ -16,20 +16,21 @@ namespace HackathonWebApi.Services
 
             if (input.Age.HasValue)
             {
-                stringBuilder.Append($"age = {input.Age}, ");
+                stringBuilder.Append($"Their age is {input.Age}, ");
             }
-            if (input.Sex.HasValue)
+            if (input.Sex.HasValue && input.Sex != Sex.Unknown)
             {
-                stringBuilder.Append($"gender = {input.Sex.ToString()} ");
+                stringBuilder.Append($"they are {input.Sex.ToString()}, ");
             }
 
-            stringBuilder.Append(PlanDescription).Append($"{input.Frequency} exercise sessions per week, start date = {input.StartDate.ToString("dd/MM/yyyy")}, ");
+            stringBuilder.Append(PlanDescription).Append($"{input.Frequency} exercise sessions per week, provide {input.Frequency * input.DurationInWeeks} days, start date = {input.StartDate.ToString("dd/MM/yyyy")}, ");
 
             if (input.DurationInWeeks.HasValue)
             {
                 stringBuilder.Append($"duration in weeks = {input.DurationInWeeks} ");
             }
 
+            stringBuilder.Append("Rest days are not calculated into the amount of exercises per week. Do not mention rest days.");
             return stringBuilder.ToString();
         }
 

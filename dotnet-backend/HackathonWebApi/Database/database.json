@@ -3,91 +3,73 @@
         {
             "Date": "2024-03-15",
             "Exercises": [
-                {"Instruction": "Warm-up: 5 min jog"},
-				{"Instruction": "Squats: 3 sets of 10 reps"},
-				{"Instruction": "Jumping Jacks: 3 sets of 15 reps"},
-				{"Instruction": "Calf Raises: 3 sets of 12 reps"}
+                { "Instruction": "Push-ups - 3 sets of 10 reps" },
+                { "Instruction": "Bench Press - 3 sets of 8 reps" },
+                { "Instruction": "Bicep Curls - 3 sets of 12 reps" },
+                { "Instruction": "Tricep Dips - 3 sets of 10 reps" }
             ]
         },
-		{
-            "Date": "2024-03-18",
+        {
+            "Date": "2024-03-17",
             "Exercises": [
-                {"Instruction": "Warm-up: 5 min jump rope"},
-				{"Instruction": "Lunges: 3 sets of 10 reps each leg"},
-				{"Instruction": "Box Jumps: 3 sets of 8 reps"},
-				{"Instruction": "High Knees: 3 sets of 20 reps"}
+                { "Instruction": "Shoulder Press - 3 sets of 8 reps" },
+                { "Instruction": "Rows - 3 sets of 10 reps" },
+                { "Instruction": "Pull-ups - 3 sets of 5 reps" },
+                { "Instruction": "Plank - 3 sets of 30 seconds" }
             ]
         },
-		{
-            "Date": "2024-03-20",
+        {
+            "Date": "2024-03-19",
             "Exercises": [
-                {"Instruction": "Warm-up: 5 min running drills"},
-				{"Instruction": "Deadlifts: 3 sets of 8 reps"},
-				{"Instruction": "Plyometric Push-ups: 3 sets of 10 reps"},
-				{"Instruction": "Broad Jumps: 3 sets of 6 reps"}
+                { "Instruction": "Dumbbell Flyes - 3 sets of 12 reps" },
+                { "Instruction": "Deadlifts - 3 sets of 8 reps" },
+                { "Instruction": "Hammer Curls - 3 sets of 10 reps" },
+                { "Instruction": "Tricep Extensions - 3 sets of 12 reps" }
             ]
         },
-		{
-            "Date": "2024-03-22",
+        {
+            "Date": "2024-03-21",
             "Exercises": [
-                {"Instruction": "Warm-up: 5 min dynamic stretching"},
-				{"Instruction": "Step-ups: 3 sets of 10 reps each leg"},
-				{"Instruction": "Vertical Jumps: 3 sets of 6 reps"},
-				{"Instruction": "Single Leg Calf Raises: 3 sets of 12 reps each leg"}
+                { "Instruction": "Incline Bench Press - 3 sets of 8 reps" },
+                { "Instruction": "Chin-ups - 3 sets of 5 reps" },
+                { "Instruction": "Lateral Raises - 3 sets of 12 reps" },
+                { "Instruction": "Russian Twists - 3 sets of 15 reps" }
             ]
         },
-		{
-            "Date": "2024-03-25",
+        {
+            "Date": "2024-03-24",
             "Exercises": [
-                {"Instruction": "Warm-up: 5 min agility ladder drills"},
-				{"Instruction": "Split Squats: 3 sets of 8 reps each leg"},
-				{"Instruction": "Tuck Jumps: 3 sets of 12 reps"},
-				{"Instruction": "Agility Cone Drills: 3 sets"}
+                { "Instruction": "Military Press - 3 sets of 8 reps" },
+                { "Instruction": "Chest Dips - 3 sets of 10 reps" },
+                { "Instruction": "Barbell Curls - 3 sets of 10 reps" },
+                { "Instruction": "Skull Crushers - 3 sets of 12 reps" }
             ]
         },
-		{
-            "Date": "2024-03-27",
+        {
+            "Date": "2024-03-26",
             "Exercises": [
-                {"Instruction": "Warm-up: 5 min burpees"},
-				{"Instruction": "Hamstring Curls: 3 sets of 12 reps"},
-				{"Instruction": "Power Skipping: 5 sets"},
-				{"Instruction": "Depth Jumps: 3 sets of 8 reps"}
+                { "Instruction": "Reverse Flyes - 3 sets of 12 reps" },
+                { "Instruction": "Seated Rows - 3 sets of 10 reps" },
+                { "Instruction": "Preacher Curls - 3 sets of 10 reps" },
+                { "Instruction": "Tricep Kickbacks - 3 sets of 12 reps" }
             ]
         },
-		{
-            "Date": "2024-03-29",
+        {
+            "Date": "2024-03-28",
             "Exercises": [
-                {"Instruction": "Warm-up: 5 min ladder sprints"},
-				{"Instruction": "Single Leg Deadlifts: 3 sets of 10 reps each leg"},
-				{"Instruction": "Bounding: 4 sets"},
-				{"Instruction": "Squat Jumps: 3 sets of 10 reps"}
+                { "Instruction": "Arnold Press - 3 sets of 8 reps" },
+                { "Instruction": "Close-grip Bench Press - 3 sets of 10 reps" },
+                { "Instruction": "Concentration Curls - 3 sets of 12 reps" },
+                { "Instruction": "Overhead Tricep Extension - 3 sets of 10 reps" }
             ]
         },
-		{
-            "Date": "2024-04-01",
+        {
+            "Date": "2024-03-31",
             "Exercises": [
-                {"Instruction": "Warm-up: 5 min shuttle runs"},
-				{"Instruction": "Cycling Jump Squats: 3 sets of 12 reps"},
-				{"Instruction": "Triple Jump Drill: 3 sets of 6 reps"},
-				{"Instruction": "Calf Jumps: 3 sets of 15 reps"}
-            ]
-        },
-		{
-            "Date": "2024-04-03",
-            "Exercises": [
-                {"Instruction": "Warm-up: 5 min skipping"},
-				{"Instruction": "Weighted Step-ups: 3 sets of 8 reps each leg"},
-				{"Instruction": "Hurdle Jumps: 3 sets of 6 reps"},
-				{"Instruction": "Explosive Push-ups: 3 sets of 8 reps"}
-            ]
-        },
-		{
-            "Date": "2024-04-05",
-            "Exercises": [
-                {"Instruction": "Warm-up: 5 min cone drills"},
-				{"Instruction": "Reverse Lunges: 3 sets of 10 reps each leg"},
-				{"Instruction": "High Box Jumps: 3 sets of 6 reps"},
-				{"Instruction": "Speed Skaters: 3 sets of 20 reps"}
+                { "Instruction": "Front Raises - 3 sets of 12 reps" },
+                { "Instruction": "Lat Pulldowns - 3 sets of 10 reps" },
+                { "Instruction": "Cable Curls - 3 sets of 12 reps" },
+                { "Instruction": "Tricep Pushdowns - 3 sets of 10 reps" }
             ]
         }
     ]

@@ -10,10 +10,12 @@ namespace HackathonWebApi.Controllers
     public class MvpController : ControllerBase
     {
         private readonly MvpService exampleService;
-
-        public MvpController(MvpService mvpService)
+        private readonly ImageService imageGenerator;
+            
+        public MvpController(MvpService openAiResponseService, ImageService imageGenerator)
         {
-            this.exampleService = mvpService;
+            this.exampleService = openAiResponseService;
+            this.imageGenerator = imageGenerator;
         }
 
         [HttpGet]
@@ -33,6 +35,13 @@ namespace HackathonWebApi.Controllers
         public async Task<string> GetYoutubeVideoAsync([FromBody] string instruction)
         {
             return await exampleService.GetYoutubeVideoAsync(instruction);
+        }
+
+        [HttpPost]
+        [Route("/api/Mvp/image")]
+        public async Task<string> GetImageUrlAsync([FromBody] string instruction)
+        {
+            return await imageGenerator.GetImageforInstrucion(instruction);
         }
     }
 }

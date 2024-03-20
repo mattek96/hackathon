@@ -1,9 +1,9 @@
 ﻿namespace HackathonWebApi.Entities
 {
-    public enum Gender
+    public enum Sex
     {
         Male,
         Female,
-        Other
+        Unknown
     }
 }
