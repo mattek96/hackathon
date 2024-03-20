@@ -1,7 +1,6 @@
 using HackathonWebApi.Entities;
 using HackathonWebApi.Json;
 using HackathonWebApi.Services;
-using HackathonWebApi.Services.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HackathonWebApi.Controllers
@@ -20,7 +19,7 @@ namespace HackathonWebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<WorkoutPlan> GetWorkoutPlanAsync()
+        public WorkoutPlan GetWorkoutPlan()
         {
             return exampleService.GetWorkoutPlan();
         }
@@ -29,6 +28,13 @@ namespace HackathonWebApi.Controllers
         public async Task<ObjectResult> CreateWorkoutPlan([FromBody] UserInput input)
         {
             return await exampleService.CreateWorkoutPlan(MessageService.GetConstructedMessage(input));
+        }
+
+        [HttpPost]
+        [Route("/api/Mvp/video")]
+        public async Task<string> GetYoutubeVideoAsync([FromBody] string instruction)
+        {
+            return await exampleService.GetYoutubeVideoAsync(instruction);
         }
 
         [HttpPost]
