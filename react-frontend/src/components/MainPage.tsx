@@ -64,8 +64,8 @@ export default function MainPage() {
   return (
     <Section>
       <Title>Training Plan</Title>
-      {workoutPlan?.days?.map((day: Day) => (
-        <Card day={day} nextExercise={day === nextDay}></Card>
+      {workoutPlan?.days.map((day: Day, index) => (
+        <Card key={index} day={day} nextExercise={day === nextDay}></Card>
       ))}
     </Section>
   );
