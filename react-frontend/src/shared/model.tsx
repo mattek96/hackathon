@@ -1,15 +1,14 @@
-export interface ExtendedExercise {
+export interface Exercise {
   instruction: string;
-  url: string;
 }
 
-export interface DayWithUrl {
+export interface Day {
   date?: Date;
-  exercises: ExtendedExercise[];
+  exercises: Exercise[];
 }
 
-export interface WorkoutPlanWithUrl {
-  days: DayWithUrl[];
+export interface WorkoutPlan {
+  days: Day[];
 }
 
 export interface UserInput {

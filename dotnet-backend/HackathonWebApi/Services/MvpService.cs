@@ -9,15 +9,11 @@ namespace HackathonWebApi.Services
     {
         private readonly string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\Database\\database.json");
 
-        public async Task<WorkoutPlanWithUrl?> GetWorkoutPlanAsync()
+        public WorkoutPlan? GetWorkoutPlan()
         {
             try
             {
-                var plan = WorkoutPlanConverter.ConvertFromJson(File.ReadAllText(filePath));
-
-                var planWithUrls = await plan.AddUrlToExercises(imageService);
-
-                return planWithUrls; // then adapt front end to read in files 
+                return WorkoutPlanConverter.ConvertFromJson(File.ReadAllText(filePath));
             }
             catch
             {

@@ -11,22 +11,31 @@ namespace HackathonWebApi.Controllers
     public class MvpController : ControllerBase
     {
         private readonly MvpService exampleService;
-
-        public MvpController(MvpService openAiResponseService)
+        private readonly ImageService imageGenerator;
+            
+        public MvpController(MvpService openAiResponseService, ImageService imageGenerator)
         {
             this.exampleService = openAiResponseService;
+            this.imageGenerator = imageGenerator;
         }
 
         [HttpGet]
         public async Task<WorkoutPlan> GetWorkoutPlanAsync()
         {
-            return await exampleService.GetWorkoutPlanAsync();
+            return exampleService.GetWorkoutPlan();
         }
 
         [HttpPost]
         public async Task<ObjectResult> CreateWorkoutPlan([FromBody] UserInput input)
         {
             return await exampleService.CreateWorkoutPlan(MessageService.GetConstructedMessage(input));
+        }
+
+        [HttpPost]
+        [Route("/api/Mvp/image")]
+        public async Task<string> GetImageUrlAsync([FromBody] string instruction)
+        {
+            return await imageGenerator.GetImageforInstrucion(instruction);
         }
     }
 }
