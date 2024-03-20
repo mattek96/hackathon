@@ -61,7 +61,6 @@ export default function MainPage() {
   }
 
   function scrollNextIntoView() {
-    console.log("Executing ScrollIntoView!");
     document.getElementsByClassName("CardNext")[0]?.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
