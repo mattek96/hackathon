@@ -25,11 +25,6 @@ namespace HackathonWebApi.Services
 
             stringBuilder.Append(PlanDescription).Append($"{input.Frequency} exercise sessions per week, provide {input.Frequency * input.DurationInWeeks} days, start date = {input.StartDate.ToString("dd/MM/yyyy")}, ");
 
-            if (input.DurationInWeeks.HasValue)
-            {
-                stringBuilder.Append($"duration in weeks = {input.DurationInWeeks} ");
-            }
-
             stringBuilder.Append("Rest days are not calculated into the amount of exercises per week. Do not mention rest days.");
             return stringBuilder.ToString();
         }
