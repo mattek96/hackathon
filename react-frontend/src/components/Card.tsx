@@ -3,6 +3,7 @@ import { Day, Instructions } from "../shared/model";
 import { useState } from "react";
 import ImageViewerPopup from "./ImageViewerPopup";
 import Button from "../shared/Button.tsx";
+import VideoViewer from "./VideoViewer.tsx";
 
 const StyledCard = styled.div`
   display: flex;
@@ -31,6 +32,7 @@ export default function Card({ day, nextExercise }: Props) {
           <div key={index}>
             <p>{exercise.instruction}</p>
             <ImageViewerPopup instruction={exercise.instruction} />
+            <VideoViewer instruction={exercise.instruction} />
           </div>
         ))}
       </StyledCard>
@@ -44,6 +46,7 @@ export default function Card({ day, nextExercise }: Props) {
         <div key={index}>
           <p>{exercise.instruction}</p>
           <ImageViewerPopup instruction={exercise.instruction} />
+          <VideoViewer instruction={exercise.instruction} />
         </div>
       ))}
     </StyledCard>
