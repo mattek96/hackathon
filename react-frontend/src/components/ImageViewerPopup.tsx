@@ -30,7 +30,7 @@ const ImageViewerPopup: React.FC<ImageViewerPopupProps> = ({ instruction }) => {
 
   if (imageUrl == undefined) {
     if (isLoading) {
-      return <LoadingPage></LoadingPage>;
+      return <label>Image is Loading..</label>;
     }
     return (
       <div className="popup">
