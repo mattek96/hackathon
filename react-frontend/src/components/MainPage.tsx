@@ -18,6 +18,8 @@ const Title = styled.h3`
   padding-bottom: 4%;
 `;
 
+const isTrue = false;
+
 export default function MainPage() {
   const [workoutPlan, setWorkoutPlan] = useState<WorkoutPlan | undefined>(
     undefined
@@ -29,9 +31,12 @@ export default function MainPage() {
   }, []);
 
   useEffect(() => {
+    scrollNextIntoView();
+  });
+
+  useEffect(() => {
     if (workoutPlan != null) {
       setNextWorkout();
-      document.getElementsByClassName("CardNext")[0].scrollIntoView();
     }
   }, [workoutPlan]);
 
@@ -53,6 +58,11 @@ export default function MainPage() {
       );
     });
     setNextDay(nextWorkout.at(0));
+  }
+
+  function scrollNextIntoView() {
+    console.log("Executing ScrollIntoView!");
+    document.getElementsByClassName("CardNext")[0]?.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   return (
