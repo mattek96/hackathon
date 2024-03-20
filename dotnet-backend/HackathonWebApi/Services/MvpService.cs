@@ -70,7 +70,7 @@ namespace HackathonWebApi.Services
 
             var videoId = searchResponse.Items.First().Id.VideoId;
 
-            var url = $"https://www.youtube.com/watch?v={videoId}";
+            var url = $"https://www.youtube.com/embed/{videoId}";
 
             return url;
         }
